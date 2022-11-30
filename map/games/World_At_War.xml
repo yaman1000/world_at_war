@@ -2189,8 +2189,8 @@
 			<step name="frenchBidPlace" delegate="placeBid" player="French" maxRunCount="1"/>
 			<step name="frenchBid" delegate="bid" player="French" maxRunCount="1"/>
 			
-			<step name="NationalistSpainBid" delegate="placeBid" player="French" maxRunCount="1"/>
-			<step name="NationalistSpainBidPlace" delegate="bid" player="French" maxRunCount="1"/>
+			<step name="NationalistSpainBid" delegate="placeBid" player="spain" maxRunCount="1"/>
+			<step name="NationalistSpainBidPlace" delegate="bid" player="spain" maxRunCount="1"/>
 			
 			<step name="yamamotoBidPlace" delegate="placeBid" player="Yamamoto" maxRunCount="1"/>
 			<step name="yamamotoBid" delegate="bid" player="Yamamoto" maxRunCount="1"/>
@@ -2250,12 +2250,12 @@
 			<step name="frenchPlace" delegate="place" player="French"/>                       
 			<step name="frenchEndTurn" delegate="endTurn" player="French"/>
 			
-			<step name="NationalistSpainCombatMove" delegate="move" player="French"/>
-			<step name="NationalistSpainPurchase" delegate="purchase" player="French"/>
-			<step name="NationalistSpainBattle" delegate="battle" player="French"/>
-			<step name="NationalistSpainNonCombatMove" delegate="move" player="French" display="Non Combat Move"/>                       
-			<step name="NationalistSpainPlace" delegate="place" player="French"/>                       
-			<step name="NationalistSpainEndTurn" delegate="endTurn" player="French"/>
+			<step name="NationalistSpainCombatMove" delegate="move" player="spain"/>
+			<step name="NationalistSpainPurchase" delegate="purchase" player="spain"/>
+			<step name="NationalistSpainBattle" delegate="battle" player="spain"/>
+			<step name="NationalistSpainNonCombatMove" delegate="move" player="spain" display="Non Combat Move"/>                       
+			<step name="NationalistSpainPlace" delegate="place" player="spain"/>                       
+			<step name="NationalistSpainEndTurn" delegate="endTurn" player="spain"/>
 
 			<step name="yamamotoCombatMove" delegate="move" player="Yamamoto"/>
 			<step name="yamamotoPurchase" delegate="purchase" player="Yamamoto"/>
