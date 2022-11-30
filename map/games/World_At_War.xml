@@ -2094,7 +2094,8 @@
 		<player name="Germans" optional="false"/>
 		<player name="Russians" optional="false"/>
 		<player name="Italians" optional="false"/>
-		<player name="French" optional="false"/>                
+		<player name="French" optional="false"/> 
+		<player name="NationalistSpain" optional="false"/>
 		<player name="Yamamoto" optional="false"/>
 		<player name="Chinese" optional="false"/>
 		<player name="Hisaichi" optional="false"/>
@@ -2109,7 +2110,8 @@
 		<alliance player="Germans" alliance="Axis"/>
 		<alliance player="Russians" alliance="Allies"/>
 		<alliance player="Italians" alliance="Axis"/>
-		<alliance player="French" alliance="Allies"/>                
+		<alliance player="French" alliance="Allies"/> 
+		<alliance player="NationalistSpain" alliance="Axis"/>
 		<alliance player="Yamamoto" alliance="Axis"/>
 		<alliance player="Chinese" alliance="Allies"/>
 		<alliance player="Hisaichi" alliance="Axis"/>
@@ -2186,7 +2188,10 @@
 
 			<step name="frenchBidPlace" delegate="placeBid" player="French" maxRunCount="1"/>
 			<step name="frenchBid" delegate="bid" player="French" maxRunCount="1"/>
-
+			
+			<step name="NationalistSpainBid" delegate="placeBid" player="French" maxRunCount="1"/>
+			<step name="NationalistSpainBidPlace" delegate="bid" player="French" maxRunCount="1"/>
+			
 			<step name="yamamotoBidPlace" delegate="placeBid" player="Yamamoto" maxRunCount="1"/>
 			<step name="yamamotoBid" delegate="bid" player="Yamamoto" maxRunCount="1"/>
 
@@ -2244,6 +2249,13 @@
 			<step name="frenchNonCombatMove" delegate="move" player="French" display="Non Combat Move"/>                       
 			<step name="frenchPlace" delegate="place" player="French"/>                       
 			<step name="frenchEndTurn" delegate="endTurn" player="French"/>
+			
+			<step name="NationalistSpainCombatMove" delegate="move" player="French"/>
+			<step name="NationalistSpainPurchase" delegate="purchase" player="French"/>
+			<step name="NationalistSpainBattle" delegate="battle" player="French"/>
+			<step name="NationalistSpainNonCombatMove" delegate="move" player="French" display="Non Combat Move"/>                       
+			<step name="NationalistSpainPlace" delegate="place" player="French"/>                       
+			<step name="NationalistSpainEndTurn" delegate="endTurn" player="French"/>
 
 			<step name="yamamotoCombatMove" delegate="move" player="Yamamoto"/>
 			<step name="yamamotoPurchase" delegate="purchase" player="Yamamoto"/>
@@ -3536,6 +3548,103 @@
 			<frontierRules name="buyAAGun"/>
 			<frontierRules name="buyFactory"/>
 		</productionFrontier>
+		
+		<productionFrontier name="SpainFrontier">
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyArtillery2"/>
+			<frontierRules name="buyTank"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyBomber"/>
+			<frontierRules name="buyT.Boat"/>
+			<frontierRules name="buyTransport"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyCruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCarrier"/>
+			<frontierRules name="buyAAGun"/>
+			<frontierRules name="buyFactory"/>
+		</productionFrontier>
+		<productionFrontier name="SpainFrontierBonus">
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyElite"/><!--
+			<frontierRules name="buyMarine"/>-->
+			<frontierRules name="buyArtillery2"/>
+			<frontierRules name="buyArmoredCar2"/>
+			<frontierRules name="buyTank"/>
+			<frontierRules name="buyMot.Inf"/>
+			<frontierRules name="buyMech.Inf"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyAdv.Fighter"/><!--
+			<frontierRules name="buyStuka"/>-->
+			<frontierRules name="buyBomber"/>
+			<frontierRules name="buyT.Boat"/>
+			<frontierRules name="buyTransport"/><!--
+			<frontierRules name="buyB.Transport"/>-->
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyCruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCarrier"/>
+			<frontierRules name="buyAAGun"/>
+			<frontierRules name="buyFactory"/>
+		</productionFrontier>
+		<productionFrontier name="SpainFrontierNew">
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyArtillery2"/>
+			<frontierRules name="buyTank"/><!--
+			<frontierRules name="buyHeavyTank"/>--><!--
+			<frontierRules name="buyMech.Rocket"/>-->
+			<frontierRules name="buyFighter"/><!--
+			<frontierRules name="buyJetFighter"/>--><!--
+			<frontierRules name="buyL.Fighter"/>-->
+			<frontierRules name="buyBomber"/><!--
+			<frontierRules name="buyS.Bomber"/>-->
+			<frontierRules name="buyT.Boat"/>
+			<frontierRules name="buyTransport"/>
+			<frontierRules name="buySubmarine"/><!--
+			<frontierRules name="buyS.Submarine"/>-->
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyCruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCarrier"/><!--
+			<frontierRules name="buyB.Carrier"/>-->
+			<frontierRules name="buyBunker"/>
+			<frontierRules name="buyAAGun"/>
+			<frontierRules name="buyFactory"/>
+		</productionFrontier>
+		<productionFrontier name="SpainFrontierBonusNew">
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyElite"/><!--
+			<frontierRules name="buyMarine"/>-->
+			<frontierRules name="buyArtillery2"/>
+			<frontierRules name="buyArmoredCar2"/>
+			<frontierRules name="buyTank"/><!--
+			<frontierRules name="buyHeavyTank"/>-->
+			<frontierRules name="buyMot.Inf"/>
+			<frontierRules name="buyMech.Inf"/><!--
+			<frontierRules name="buyMech.Rocket"/>-->
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyAdv.Fighter"/><!--
+			<frontierRules name="buyStuka"/>--><!--
+			<frontierRules name="buyJetFighter"/>--><!--
+			<frontierRules name="buyL.Fighter"/>-->
+			<frontierRules name="buyBomber"/><!--
+			<frontierRules name="buyS.Bomber"/>-->
+			<frontierRules name="buyT.Boat"/>
+			<frontierRules name="buyTransport"/><!--
+			<frontierRules name="buyB.Transport"/>-->
+			<frontierRules name="buySubmarine"/><!--
+			<frontierRules name="buyS.Submarine"/>-->
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyCruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCarrier"/><!--
+			<frontierRules name="buyB.Carrier"/>-->
+			<frontierRules name="buyBunker"/>
+			<frontierRules name="buyAAGun"/>
+			<frontierRules name="buyFactory"/>
+		</productionFrontier>
 
 		<productionFrontier name="ChineseFrontier">
 			<frontierRules name="buyInfantry"/>
@@ -4027,6 +4136,7 @@
 		<playerProduction player="Russians" frontier="RussiansFrontier"/>
 		<playerProduction player="Italians" frontier="ItaliansFrontier"/>
 		<playerProduction player="French" frontier="FrenchFrontier"/>
+		<playerProduction player="Spain" frontier="SpainFrontier"/>
 		<playerProduction player="British" frontier="BritishFrontier"/>
 		<playerProduction player="Americans" frontier="AmericansFrontier"/>
 		<playerProduction player="Finns" frontier="FinnsFrontier"/>
@@ -4042,6 +4152,7 @@
 		<playerRepair player="Russians" frontier="repair"/>
 		<playerRepair player="Italians" frontier="repair"/>
 		<playerRepair player="French" frontier="repair"/>
+		<playerRepair player="Spain" frontier="repair"/>
 		<playerRepair player="British" frontier="repair"/>
 		<playerRepair player="Americans" frontier="repair"/>
 		<playerRepair player="Finns" frontier="repair"/>
@@ -4293,13 +4404,13 @@
 			<option name="canProduceXUnits" value="-1"/>
 			<option name="canBeDamaged" value="true"/>
 			<option name="maxDamage" value="1"/>
-			<option name="destroyedWhenCapturedBy" value="Germans:Italians:Yamamoto:Hisaichi:Finns:Romanians:Thai:Russians:French:Chinese:British:Anzac:Dutch:Americans"/>
+			<option name="destroyedWhenCapturedBy" value="Germans:Italians:Yamamoto:Hisaichi:Finns:Romanians:Thai:Russians:French:Spain:Chinese:British:Anzac:Dutch:Americans"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="AAGun" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 			<option name="isAA" value="true"/>
 			<option name="transportCost" value="3"/>
 			<option name="movement" value="1"/>
-			<option name="destroyedWhenCapturedBy" value="Germans:Italians:Yamamoto:Hisaichi:Finns:Romanians:Thai:Russians:French:Chinese:British:Anzac:Dutch:Americans"/>
+			<option name="destroyedWhenCapturedBy" value="Germans:Italians:Yamamoto:Hisaichi:Finns:Romanians:Thai:Russians:French:Spain:Chinese:British:Anzac:Dutch:Americans"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="Mot.Inf" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 			<option name="movement" value="3"/>
@@ -4448,8 +4559,6 @@
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Sverdlovsk" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
-			<option name="capital" value="Russians"/>
-			<!--<option name="victoryCity" value="1"/>-->
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Kuybyshev" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="1"/>
@@ -4495,7 +4604,6 @@
 		<attachment name="territoryAttachment" attachTo="Sibirsky" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="6"/>
 			<!--<option name="victoryCity" value="1"/>-->
-			<option name="capital" value="Russians"/>
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Bulun" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="0"/>
@@ -5477,7 +5585,7 @@
 			<option name="production" value="2"/>
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Rio de Oro" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="3"/>
+			<option name="production" value="1"/>
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="W.Tibet" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="1"/>
@@ -5600,6 +5708,7 @@
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Madrid" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="capital" value="Spain"/>
 			<!--<option name="victoryCity" value="1"/>-->
 		</attachment>
 		<attachment name="territoryAttachment" attachTo="Izmir" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5871,24 +5980,25 @@
 		<!-- conditions and triggers -->
 		<attachment name="conditionAttachmentUnconditionalAxisVictory" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="gameProperty" value="Unconditional Surrender"/>
-			<option name="alliedOwnershipTerritories" value="Berlin:Rome:Tokyo:Changchun:Helsinki:Bucharest:Bangkok:Moscow:Sverdlovsk:Sibirsky:Paris:Churchill:Hsining:London:Montreal:Delhi:Canberra:Banjarmasin:Suriname:Washington:San Francisco" count="16"/>
+			<option name="alliedOwnershipTerritories" value="Berlin:Rome:Tokyo:Changchun:Helsinki:Madrid:Bucharest:Bangkok:Moscow:Sverdlovsk:Sibirsky:Paris:Churchill:Hsining:London:Montreal:Delhi:Canberra:Banjarmasin:Suriname:Washington:San Francisco" count="16"/>
 		</attachment>
 		<attachment name="conditionAttachmentUnconditionalAlliesVictory" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="gameProperty" value="Unconditional Surrender"/>
-			<option name="alliedOwnershipTerritories" value="Berlin:Rome:Tokyo:Changchun:Helsinki:Bucharest:Bangkok:Moscow:Sverdlovsk:Sibirsky:Paris:Churchill:Hsining:London:Montreal:Delhi:Canberra:Banjarmasin:Suriname:Washington:San Francisco" count="16"/>
+			<option name="alliedOwnershipTerritories" value="Berlin:Rome:Tokyo:Changchun:Helsinki:Madrid:Bucharest:Bangkok:Moscow:Sverdlovsk:Sibirsky:Paris:Churchill:Hsining:London:Montreal:Delhi:Canberra:Banjarmasin:Suriname:Washington:San Francisco" count="16"/>
 		</attachment>
 
 		<attachment name="triggerAttachmentUnconditionalAxisVictory" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentUnconditionalAxisVictory"/>
 			<option name="when" value="after:germansBattle"/>
 			<option name="when" value="after:italiansBattle"/>
+			<option name="when" value="after:spainBattle"/>
 			<option name="when" value="after:yamamotoBattle"/>
 			<option name="when" value="after:hisaichiBattle"/>
 			<option name="when" value="after:finnsBattle"/>
 			<option name="when" value="after:romaniansBattle"/>
 			<option name="when" value="after:thaiBattle"/>
 			<option name="victory" value="AXIS_VICTORY_UNCONDITIONAL"/>
-			<option name="players" value="Germans:Italians:Yamamoto:Hisaichi:Finns:Romanians:Thai"/>
+			<option name="players" value="Germans:Italians:Spain:Yamamoto:Hisaichi:Finns:Romanians:Thai"/>
 		</attachment>
 		<attachment name="triggerAttachmentUnconditionalAlliesVictory" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentUnconditionalAlliesVictory"/>
@@ -5994,6 +6104,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6015,6 +6126,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6038,6 +6150,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6060,6 +6173,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6084,6 +6198,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6105,6 +6220,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6126,6 +6242,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6147,6 +6264,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6168,6 +6286,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6189,6 +6308,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6210,6 +6330,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6231,6 +6352,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6252,6 +6374,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6273,6 +6396,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6294,6 +6418,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6315,6 +6440,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6336,6 +6462,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6357,6 +6484,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6380,6 +6508,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6402,6 +6531,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6424,6 +6554,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6446,6 +6577,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6468,6 +6600,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6490,6 +6623,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6512,6 +6646,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6534,6 +6669,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6556,6 +6692,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6578,6 +6715,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6600,6 +6738,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6622,6 +6761,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6644,6 +6784,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6666,6 +6807,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6689,6 +6831,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6711,6 +6854,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6733,6 +6877,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6755,6 +6900,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6777,6 +6923,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6799,6 +6946,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6821,6 +6969,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6843,6 +6992,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6865,6 +7015,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6887,6 +7038,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6909,6 +7061,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6931,6 +7084,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6953,6 +7107,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6975,6 +7130,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -6997,6 +7153,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7018,6 +7175,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7039,6 +7197,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7060,6 +7219,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7081,6 +7241,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7102,6 +7263,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7123,6 +7285,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7144,6 +7307,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7165,6 +7329,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7186,6 +7351,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7207,6 +7373,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7228,6 +7395,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7249,6 +7417,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7270,6 +7439,7 @@
 			<option name="when" value="before:russiansCombatMove"/>
 			<option name="when" value="before:italiansCombatMove"/>
 			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
 			<option name="when" value="before:yamamotoCombatMove"/>
 			<option name="when" value="before:chineseCombatMove"/>
 			<option name="when" value="before:hisaichiCombatMove"/>
@@ -7282,7 +7452,28 @@
 			<option name="when" value="before:americansCombatMove"/>
 			<option name="frontier" value="AmericansFrontier"/>
 		</attachment>
-
+		<attachment name="triggerAttachment_Units_Default_Spain" attachTo="Spain" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment_Units_Bonus_True_OR_Units_New_True"/>
+			<option name="conditions" value="conditionAttachment_Units_BonusInvert"/>
+			<option name="conditions" value="conditionAttachment_Units_NewInvert_OR_Round_1-3"/>
+			<option name="when" value="before:gameInitDelegate"/>
+			<option name="when" value="before:germansCombatMove"/>
+			<option name="when" value="before:russiansCombatMove"/>
+			<option name="when" value="before:italiansCombatMove"/>
+			<option name="when" value="before:frenchCombatMove"/>
+			<option name="when" value="before:spainCombatMove"/>
+			<option name="when" value="before:yamamotoCombatMove"/>
+			<option name="when" value="before:chineseCombatMove"/>
+			<option name="when" value="before:hisaichiCombatMove"/>
+			<option name="when" value="before:britishCombatMove"/>
+			<option name="when" value="before:anzacCombatMove"/>
+			<option name="when" value="before:dutchCombatMove"/>
+			<option name="when" value="before:finnsCombatMove"/>
+			<option name="when" value="before:romaniansCombatMove"/>
+			<option name="when" value="before:thaiCombatMove"/>
+			<option name="when" value="before:americansCombatMove"/>
+			<option name="frontier" value="SpainFrontier"/>
+		</attachment>
 
                 <attachment name="triggerAttachment_Units_Bonus_StartGame_Setup_Remove" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachment_Units_Bonus"/>
@@ -7638,6 +7829,7 @@
 			<territoryOwner territory="Umnak" owner="Americans"/>
 			<territoryOwner territory="South Atlantic USA" owner="Americans"/>
 			<territoryOwner territory="Mindanao" owner="Americans"/>
+			<territoryOwner territory="Madrid" owner="Spain"/>
 		</ownerInitialize>
 		<unitInitialize>
 			<unitPlacement unitType="Infantry" territory="Silesia" quantity="3" owner="Germans"/>
@@ -7894,6 +8086,13 @@
 			<unitPlacement unitType="Fighter" territory="Tunis" quantity="1" owner="French"/>
 			<unitPlacement unitType="Factory" territory="Tunis" quantity="1" owner="French"/>
 			<unitPlacement unitType="AAGun" territory="Tunis" quantity="1" owner="French"/>
+			
+			<unitPlacement unitType="Infantry" territory="Madrid" quantity="4" owner="Spain"/>
+			<unitPlacement unitType="Artillery" territory="Madrid" quantity="1" owner="Spain"/>
+			<unitPlacement unitType="Tank" territory="Madrid" quantity="1" owner="Spain"/>
+			<unitPlacement unitType="Factory" territory="Madrid" quantity="1" owner="Spain"/>
+			<unitPlacement unitType="AAGun" territory="Madrid" quantity="1" owner="Spain"/>
+			
 			<unitPlacement unitType="Infantry" territory="Tokyo" quantity="2" owner="Yamamoto"/>
 			<unitPlacement unitType="Artillery" territory="Tokyo" quantity="1" owner="Yamamoto"/>
 			<unitPlacement unitType="Tank" territory="Tokyo" quantity="1" owner="Yamamoto"/>
@@ -8383,14 +8582,7 @@
 			<unitPlacement unitType="Submarine" territory="23 Sea Zone" quantity="1" owner="Germans"/>
 			<unitPlacement unitType="Submarine" territory="15 Sea Zone" quantity="1" owner="Germans"/>
 			<unitPlacement unitType="Submarine" territory="16 Sea Zone" quantity="1" owner="Germans"/>
-
-
-			<unitPlacement unitType="Infantry" territory="Madrid" quantity="3"/>
-			<unitPlacement unitType="Tank" territory="Madrid" quantity="3"/>
-			<unitPlacement unitType="Factory" territory="Madrid" quantity="1"/>
-			<unitPlacement unitType="AAGun" territory="Madrid" quantity="1"/>
-
-
+			
 			<unitPlacement unitType="Infantry" territory="Leon" quantity="3"/>
 			<unitPlacement unitType="Infantry" territory="Aragon" quantity="3"/>
 			<unitPlacement unitType="Bunker" territory="Switzerland" quantity="6"/>
@@ -8694,7 +8886,8 @@
 			<resourceGiven player="Germans" resource="PUs" quantity="40"/>
 			<resourceGiven player="Russians" resource="PUs" quantity="12"/>
 			<resourceGiven player="Italians" resource="PUs" quantity="35"/>
-			<resourceGiven player="French" resource="PUs" quantity="10"/>                     
+			<resourceGiven player="French" resource="PUs" quantity="10"/> 
+			<resourceGiven player="Spain" resource="PUs" quantity="4"/>  
 			<resourceGiven player="Yamamoto" resource="PUs" quantity="40"/>
 			<resourceGiven player="Chinese" resource="PUs" quantity="12"/>
 			<resourceGiven player="Hisaichi" resource="PUs" quantity="30"/>
@@ -8734,6 +8927,9 @@
 			<number min="0" max="1000"/>
 		</property>
 		<property name="French bid" value="0" editable="true">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Spain bid" value="0" editable="true">
 			<number min="0" max="1000"/>
 		</property>
 		<property name="Chinese bid" value="0" editable="true">
@@ -8993,6 +9189,10 @@
          <tr>
             <td bgcolor="CCAA77" colspan="2"></td>
             <td bgcolor="CCCC99"><img src="Dutch.png"/></td>
+            <td bgcolor="CCCC99" width="100%" align="right">Dutch</td>
+         </tr>
+            <td bgcolor="CCAA77" colspan="2"></td>
+            <td bgcolor="CCCC99"><img src="Spain.png"/></td>
             <td bgcolor="CCCC99" width="100%" align="right">Dutch</td>
          </tr>
          <tr>
